@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ducks Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .image-container {
+            margin: 10px;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 40%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .caption {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ducks Gallery</h1>
+    <div class="gallery">
+        <% for (let i = 0; i < aDuckList.length; i++) { %>
+            <div class="image-container">
+                <img src="<%= aDuckList[i].imglink %>" alt="<%= aDuckList[i].name %>">
+                <p class="caption"><%= aDuckList[i].name %></p>
+            </div>
+            <% if ((i + 1) % 4 === 0) { %>
+                <div style="flex-basis: 100%;"></div>
+            <% } %>
+        <% } %>
+    </div>
+</body>
+</html>
